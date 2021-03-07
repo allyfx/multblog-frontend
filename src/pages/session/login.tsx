@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head';
 import Input from "components/Input";
 import Button from "components/Button";
+import Services from "services";
 import {
 	LoginContainer,
 	LoginForm,
@@ -21,7 +22,10 @@ export default function Login() {
 		email: "",
 		password: "",
 	});
-	const handleSubmit = () => {};
+	const handleSubmit = async () => {
+		const response = await Services.Session.login(data);
+		console.log(response);
+	};
 	const handleGoBack = () => {
 		router.back();
 	};
