@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { createContext, ReactNode, useState } from "react";
 
 interface IUser {
@@ -14,6 +14,7 @@ interface IApplicationProviderProps {
 
 interface IApplicationContext {
 	user: IUser;
+  setUser: Dispatch<SetStateAction<IUser>>;
 }
 
 export const ApplicationContext = createContext({} as IApplicationContext);
@@ -31,6 +32,7 @@ export function ApplicationProvider({ children }: IApplicationProviderProps) {
 	return (
 		<ApplicationContext.Provider value={{
 			user,
+      setUser,
 		}}>
 			{children}
 		</ApplicationContext.Provider>

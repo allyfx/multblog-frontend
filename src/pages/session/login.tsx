@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from 'next/router'
 import Head from 'next/head';
 import Input from "components/Input";
 import Button from "components/Button";
 import Services from "services";
+import { ApplicationContext } from "contexts/Application";
 import {
 	LoginContainer,
 	LoginForm,
@@ -18,13 +19,20 @@ interface IData {
 
 export default function Login() {
 	const router = useRouter();
+  const { setUser } = useContext(ApplicationContext);
 	const [data, setData] = useState<IData>({
 		email: "",
 		password: "",
 	});
 	const handleSubmit = async () => {
 		const response = await Services.Session.login(data);
-		console.log(response);
+    setUser({
+      id: response.data.id,
+      name: response.data.name,
+      email: response.data.email,
+      token: response.data.token,
+    });
+    router.push('/');
 	};
 	const handleGoBack = () => {
 		router.back();
@@ -51,6 +59,7 @@ export default function Login() {
 						value={data.email}
 					/>
 					<Input
+            type="password"
 						placeholder="Digite sua senha"
 						onChange={(e) => setData({ ...data, password: e.target.value })}
 						value={data.password}
