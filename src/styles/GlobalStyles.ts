@@ -19,4 +19,8 @@ export default createGlobalStyle`
 	body, input, textarea, button {
 		font: 400 1rem "Roboto", sans-serif;
 	}
+
+	html, body {
+		height: 100%;
+	}
 `;
