@@ -14,13 +14,17 @@ interface IApplicationProviderProps {
 
 interface IApplicationContext {
 	user: IUser;
-  setUser: Dispatch<SetStateAction<IUser>>;
+  authenticateUser: (user: IUser) => void;
 }
 
 export const ApplicationContext = createContext({} as IApplicationContext);
 
 export function ApplicationProvider({ children }: IApplicationProviderProps) {
 	const [user, setUser] = useState<IUser>({});
+  const authenticateUser = (user: IUser) => {
+    setUser(user);
+    localStorage.setItem('multblog:login', JSON.stringify(user));
+  };
 	const getData = () => {
 		const local = localStorage.getItem('multblog:login');
 		if (!local) return;
@@ -32,7 +36,7 @@ export function ApplicationProvider({ children }: IApplicationProviderProps) {
 	return (
 		<ApplicationContext.Provider value={{
 			user,
-      setUser,
+      authenticateUser,
 		}}>
 			{children}
 		</ApplicationContext.Provider>

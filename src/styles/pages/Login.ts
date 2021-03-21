@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LoginContainer = styled.div`
 	padding: 80px 124px;
-	background: url("../background.png");
+	background: url("../assets/background.png");
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
