@@ -19,17 +19,17 @@ interface IData {
 
 export default function Login() {
 	const router = useRouter();
-  const { setUser } = useContext(ApplicationContext);
+  const { authenticateUser } = useContext(ApplicationContext);
 	const [data, setData] = useState<IData>({
 		email: "",
 		password: "",
 	});
 	const handleSubmit = async () => {
 		const response = await Services.Session.login(data);
-    setUser({
-      id: response.data.id,
-      name: response.data.name,
-      email: response.data.email,
+    authenticateUser({
+      id: response.data.user.id,
+      name: response.data.user.name,
+      email: response.data.user.email,
       token: response.data.token,
     });
     router.push('/');
