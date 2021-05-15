@@ -19,9 +19,11 @@ function MyApp({ Component, pageProps }) {
         <Header />
 				<Component {...pageProps} />
 			</ApplicationProvider>
-			{!router.pathname.includes("session") && (
-        <Footer phrase={phrases[randomPhrase]} />
-      )}
+			{router.pathname === "/404"
+        ? null
+        : !router.pathname.includes("session")
+            && <Footer phrase={phrases[randomPhrase]} />
+      }
 		</>
 	);
 };

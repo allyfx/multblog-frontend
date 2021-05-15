@@ -53,8 +53,6 @@ export default function SignIn() {
   return (
     <SigninContainer>
       <Head>
-        <link rel="shortcut icon" href="../favicon.png" type="image/png"/>
-
         <title>SignIn - MultBlog</title>
       </Head>
 
