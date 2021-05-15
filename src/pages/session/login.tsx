@@ -41,8 +41,6 @@ export default function Login() {
 		<>
 			<LoginContainer>
 				<Head>
-					<link rel="shortcut icon" href="../favicon.png" type="image/png"/>
-
 					<title>Login - MultBlog</title>
 				</Head>
 
