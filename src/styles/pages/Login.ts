@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-	padding: 80px 124px;
+  height: 100vh;
+	padding: 0px 124px;
+  padding-top: 80px;
+  padding-bottom: 40px;
 	background: url("../assets/background.png");
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+  justify-content: space-evenly;
 	h2 {
 		font-weight: 700;
 		font-size: 36px;
