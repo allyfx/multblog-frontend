@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginContainer = styled.div`
+export const SigninContainer = styled.div`
   height: 100vh;
 	padding: 0px 124px;
   padding-top: 80px;
@@ -18,15 +18,15 @@ export const LoginContainer = styled.div`
 	}
 `;
 
-export const LoginForm = styled.div`
+export const SigninForm = styled.div`
 	align-self: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 `;
 
-export const LoginMessage = styled.div`
-	width: 450px;
+export const SigninMessage = styled.div`
+	width: 544px;
 	margin-bottom: 94px;
 	p {
 		font-weight: 400;
